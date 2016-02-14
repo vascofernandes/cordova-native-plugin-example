@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    id="cordova-myplugin"
+    version="1.0.8">
+  <name>MyPlugin</name>
+  <description>Cordova MyPlugin</description>
+  <license>Apache 2.0</license>
+  <keywords>cordova,myplugin</keywords>
+
+  <js-module src="www/MyPlugin.js" name="myplugin">
+    <clobbers target="navigator.myplugin" />
+  </js-module>
+
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="MyPlugin">
+        <param name="android-package" value="org.apache.cordova.myplugin.MyPlugin"/>
+      </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/*">
+    </config-file>
+
+    <source-file src="src/android/MyPlugin.java" target-dir="src/org/apache/cordova/myplugin" />
+
+  </platform>
+
+</plugin>
